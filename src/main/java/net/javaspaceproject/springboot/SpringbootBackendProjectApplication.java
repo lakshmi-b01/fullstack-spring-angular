@@ -15,8 +15,5 @@ public class SpringbootBackendProjectApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootBackendProjectApplication.class, args);
 	}
-	
-	@Autowired
-	private UserRepository userRepository;
 
 }
