@@ -16,6 +16,7 @@ public class UserService {
     }
 
     public List<User> getAllUsers(){
+        System.out.println("Get all Users");
         return users;
     }
 

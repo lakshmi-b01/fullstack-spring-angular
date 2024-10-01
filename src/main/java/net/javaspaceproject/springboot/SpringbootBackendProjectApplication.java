@@ -19,12 +19,4 @@ public class SpringbootBackendProjectApplication {
 	@Autowired
 	private UserRepository userRepository;
 
-//	@Override
-//	public void run(String... args) throws Exception {
-//		this.userRepository.save(new User("John", "May","johnmay@gmail.com"));
-//		this.userRepository.save(new User("Ben", "Ten","benten@gmail.com"));
-//		this.userRepository.save(new User("Melissa", "Robinson","melissa@gmail.com"));
-//		this.userRepository.save(new User("Rob", "Mat","robmat@gmail.com"));
-//	}
-
 }
