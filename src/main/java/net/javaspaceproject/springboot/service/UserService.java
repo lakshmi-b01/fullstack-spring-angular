@@ -1,5 +1,6 @@
 package net.javaspaceproject.springboot.service;
 
+import net.javaspaceproject.springboot.exception.UserNotFoundException;
 import net.javaspaceproject.springboot.model.User;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,12 @@ public class UserService {
     }
 
     public Optional<User> getUserById(long id) {
-        return users.stream().filter(user -> user.getId() == id).findFirst();
+        return users.stream()
+                .filter(user -> user.getId() == id)
+                .findFirst()
+                .or(() -> {
+                    throw new UserNotFoundException("User not found with id: " + id);
+                });
     }
 
 

@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.Optional;
 
+import static org.mockito.Mockito.when;
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -48,6 +49,14 @@ public class UserServiceTest {
         Optional<User> foundUser = userService.getUserById(1);
         assertTrue(foundUser.isPresent());
         assertEquals(foundUser.get().getFirstName(), "John");
+    }
+
+    @Test
+    public void testGetUserById_throwsException(){
+        User user = new User("John", "May", "johnmay@gmail.com");
+        user.setId(1);
+        when(userService.getUserById(1)).thenThrow(new RuntimeException("Data cannot be fetched"));
+        userService.getUserById(1);
     }
 
     @Test

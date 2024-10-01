@@ -68,6 +68,13 @@ public class UserControllerTest {
     }
 
     @Test
+    public void testGetUsersById_throwsException(){
+        when(userService.getUserById(1)).thenThrow(new RuntimeException("User not found"));
+        ResponseEntity<Optional<User>> response = userController.getUsersById(1);
+        assertEquals(response.getStatusCode(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Test
     public void testDeleteUser() {
         when(userService.deleteUserById(1)).thenReturn(true);
 
